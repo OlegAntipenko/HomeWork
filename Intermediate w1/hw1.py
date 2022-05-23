@@ -48,27 +48,27 @@ class Fraction(Mixin):
 
     @property
     def num(self):
-        return self.num
+        return self.__num
 
     @num.setter
     def num(self, num):
-        self.num = self.chek(num)
+        self.__num = self.chek(num)
 
     @num.deleter
     def num(self):
-        del self.num
+        del self.__num
 
     @property
     def den(self):
-        return self.den
+        return self.__den
 
     @den.setter
     def den(self, den):
-        self.den = self.chek_den(den)
+        self.__den = self.chek_den(den)
 
     @den.deleter
     def den(self):
-        del self.den
+        del self.__den
 
     def __sub__(self, other):
         if self.den == other.den:
@@ -105,10 +105,10 @@ class Fraction(Mixin):
         return f"{self.num}/{self.den}"
 
 
-f1 = Fraction(2, 3)
+f1 = Fraction(2, 5)
 f1.num = 10
 f2 = Fraction(5, 4)
-f2.den = 8
+f2.den = 6
 print(f1 - f2)
 print(f1 + f2)
 print(f1 * f2)
