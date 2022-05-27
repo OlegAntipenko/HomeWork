@@ -14,21 +14,18 @@ def calc():
 
     if st[1] == '+':
         res = v1 + v2
-        return print(res)
+        return res
     elif st[1] == '-':
         res = v1 - v2
-        return print(res)
+        return res
     elif st[1] == '*':
         res = v1 * v2
-        return print(res)
+        return res
     elif st[1] == '/':
-        if v2 != 0:
-            res = v1 / v2
-            return print(res)
-        else:
-            raise ZeroDivisionError("На ноль делить нельзя")
+        res = v1 / v2
+        return res
     else:
         raise FormulaError("Не верный формат ввода")
 
 
-calc()
+print(calc())

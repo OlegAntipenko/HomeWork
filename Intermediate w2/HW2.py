@@ -1,12 +1,22 @@
 class ReverseIter():
     def __init__(self, *args):
         self.li = list(args)
+        self.le = len(self.li)
 
-    def reiter(self):
-        new_list = []
-        for i in self.li[::-1]:
-            new_list.append(i)
-        return new_list
+    def __iter__(self):
+        self.coun = self.le - 1
+        return self
 
-r = ReverseIter(2, 'hfhf', 7)
-print(r.reiter())
+    def __next__(self):
+        if self.coun >= 0:
+            self.c = self.li[self.coun]
+            x = self.c
+            self.coun -= 1
+            return x
+        else:
+            raise StopIteration
+
+
+r = ReverseIter(2, 'hfhf', 12)
+for i in r:
+    print(i)
